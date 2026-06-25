@@ -3,12 +3,16 @@ import profilePic from "./assets/profile.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect} from "react";
+import rack1 from "./assets/rack1.jpg";
 
 // Example placeholders (you already said you have images)
 // Replace filenames with your real ones
 import ai1 from "./assets/ai-repair-1.jpg";
 import ai2 from "./assets/ai-repair-2.jpg";
+import ai3 from "./assets/ai-repair-3.jpg";
 import cane1 from "./assets/cane-1.jpg";
+import cane2 from "./assets/cane-2.jpg";
+import cane3 from "./assets/cane-3.jpg";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,6 +22,12 @@ function App() {
       once: true,
     });
   }, []);
+
+  const aiImages = [ai1, ai2, ai3];
+  const caneImages = [cane1, cane2, cane3];
+
+  const [selectedAiImage, setSelectedAiImage] = useState(ai1);
+  const [selectedCaneImage, setSelectedCaneImage] = useState(cane1);
 
   return (
     <div className={
@@ -82,6 +92,12 @@ function App() {
             Actively seeking internship opportunities.
           </p>
 
+          <p className="opacity-60">
+            Expected Graduation: 2028
+            <br />
+            Universiti Teknologi MARA (UiTM)
+          </p>
+
           <div className="flex gap-4 pt-4">
             <a
               href="#projects"
@@ -112,11 +128,26 @@ function App() {
       <section data-aos="fade-up" id="about" className="max-w-5xl mx-auto px-6 py-28">
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <div className="bg-white/70 dark:bg-white/5 backdrop-blur-md border rounded-2xl p-8 shadow-sm">
-        <p className="opacity-80 leading-8">
-          Computer Science undergraduate specializing in Netcentric Computing with practical experience in network installation,
-          configuration and technical troubleshooting. Skilled in software and mobile application development using Flutter and Firebase
-          as well as IoT system development using ESP8266 and GPS technologies. Passionate about networking, software engineering
-          and IT infrastructure with a strong desire to contribute to innovative technology solutions. 
+        <p className="text-slate-600 dark:text-slate-700">
+          I am a Bachelor of Computer Science (Hons.) Netcentric Computing student at
+          Universiti Teknologi MARA (UiTM) with experience in software development,
+          networking, and IoT systems. During my internship and subsequent employment
+          at Infradata Technology Sdn. Bhd., I gained hands-on experience in network
+          installation, configuration, troubleshooting, and infrastructure deployment.
+
+          <br /><br />
+
+          My technical interests include mobile application development, artificial
+          intelligence, cloud technologies, and network infrastructure. I have
+          developed projects using Flutter, Firebase, OpenAI API, ESP8266, GPS, and
+          geolocation services, including an AI-powered repair assistant application
+          and a smart navigation cane for visually impaired individuals.
+
+          <br /><br />
+
+          I am passionate about building practical technology solutions that solve
+          real-world problems and continuously expanding my skills in software
+          engineering, networking, and emerging technologies.
         </p>
         </div>
       </section>
@@ -139,10 +170,12 @@ function App() {
               "Firebase",
               "Java",
               "C++",
+              "HTML",
+              "CSS",
               "Ruby on Rails",
-              "ESP8266 & IoT Dev",
               "Git",
               "MySQL",
+              "ESP8266 & IoT Dev",
               "Network Troubleshooting",
               "Switch & Router Configuration",
             ].map((s) => (
@@ -168,29 +201,182 @@ function App() {
 
         <div className="grid md:grid-cols-2 gap-10">
 
-          {/* AI REPAIR */}
-          <div className="group bg-white dark:bg-slate-900 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+        {/* AI REPAIR */}
+        <div className="group bg-white dark:bg-slate-900 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+
+          <div className="p-4">
+
+            {/* Main Image */}
+            <img
+              src={selectedAiImage}
+              className="w-full h-[420px] object-contain bg-slate-100 dark:bg-slate-800 rounded-xl"
+            />
+
+            {/* Thumbnails */}
+            <div className="flex justify-center gap-2 mt-4 flex-wrap">
+              {aiImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`AI Screenshot ${index + 1}`}
+                  onClick={() => setSelectedAiImage(img)}
+                  className={`w-16 h-16 rounded-lg object-cover cursor-pointer border-2 transition
+                    ${
+                      selectedAiImage === img
+                        ? "border-blue-500"
+                        : "border-transparent"
+                    }`}
+                />
+              ))}
+            </div>
+
+          </div>
+
+          <div className="p-6 space-y-3">
+
+            <h3 className="text-2xl font-bold text-blue-600">
+              AI Repair Assistant
+            </h3>
+
+            <p className="text-sm text-slate-600 dark:text-slate-300">
+              AI-powered mobile app for diagnosing appliance issues,
+              providing repair guidance, technician search, geolocation services,
+              and interactive AI assistance through chat and camera-based support.
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {[
+                "Flutter",
+                "Firebase",
+                "OpenAI API",
+                "Geolocation",
+                "Google Maps",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-3 py-1 rounded-full border bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:scale-[1.02] transition duration-300"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* SMART CANE */}
+        <div className="group bg-white dark:bg-slate-900 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+
+          <div className="p-4">
+
+            {/* Main Image */}
+            <img
+              src={selectedCaneImage}
+              className="w-full h-[420px] object-contain bg-slate-100 dark:bg-slate-800 rounded-xl"
+            />
+
+            {/* Thumbnails */}
+            <div className="flex justify-center gap-2 mt-4 flex-wrap">
+              {caneImages.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Smart Cane ${index + 1}`}
+                  onClick={() => setSelectedCaneImage(img)}
+                  className={`w-16 h-16 rounded-lg object-cover cursor-pointer border-2 transition
+                    ${
+                      selectedCaneImage === img
+                        ? "border-blue-500"
+                        : "border-transparent"
+                    }`}
+                />
+              ))}
+            </div>
+
+          </div>
+
+          <div className="p-6 space-y-3">
+
+            <h3 className="text-2xl font-bold text-blue-600">
+              Smart Navigation Cane
+            </h3>
+
+            <p className="text-sm text-slate-600 dark:text-slate-300">
+              IoT-based assistive device developed using ESP8266, ultrasonic sensing,
+              GPS tracking, caregiver notifications, and obstacle detection to support
+              visually impaired individuals during navigation.
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {[
+                "ESP8266",
+                "GPS",
+                "Blynk",
+                "IoT",
+                "Ultrasonic Sensor",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-3 py-1 rounded-full border bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:scale-[1.02] transition duration-300"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+          </div>
+
+        </div>
+
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section data-aos="fade-up" id="projects" className="max-w-6xl mx-auto px-6 py-28">
+        <h2 className="text-4xl font-bold mb-12 text-center">
+          Professional Experience
+        </h2>
+
+        <div className="flex justify-center">
+
+          <div className="group bg-white dark:bg-slate-900 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 max-w-3xl w-full">
 
             <div className="overflow-hidden">
               <img
-                src={ai1}
+                src={rack1}
                 className="w-full h-[420px] object-contain bg-slate-100 dark:bg-slate-800 p-4"
               />
             </div>
 
             <div className="p-6 space-y-3">
               <h3 className="text-2xl font-bold text-blue-600">
-                AI Repair Assistant
+                Network Technician
               </h3>
+              <p className= "text-sm text-slate-600 dark:text-slate-500">
+              Network Technician Intern / Network Technician at Infradata Technology Sdn. Bhd.
+              </p>
+              <p className= "text-sm text-slate-600 dark:text-slate-500">
+                Mar 2024 – Sep 2024
+              </p>
 
               <p className="text-sm text-slate-600 dark:text-slate-300">
-                AI-powered mobile app for diagnosing appliance issues,
-                providing repair guidance, technician search and geolocation support.
+                Assisted in the installation, configuration, and maintenance of network infrastructure.
+                <br />
+                Performed troubleshooting and diagnosis of network connectivity issues.
+                <br />
+                Supported the deployment and organization of network racks, structured cabling, switches, and routers.
+                <br />
+                Participated in on-site network implementation and infrastructure projects.
+                <br />
+                Collaborated with technical teams to ensure reliable and secure network operations.
+                <br />
+                Continued with the company after internship completion to provide ongoing technical support and project assistance.
               </p>
 
               {/* TAGS */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {["Flutter", "Firebase", "OpenAI", "GPS"].map((t) => (
+                {["Cambium Network Configuration", "TP-Link Network Configuration", "Switch Configuration", "Router Configuration"].map((t) => (
                   <span
                     key={t}
                     className="text-xs px-3 py-1 rounded-full border bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:scale-[1.02] transition duration-300"
@@ -202,41 +388,6 @@ function App() {
 
             </div>
           </div>
-
-          {/* CANE */}
-          <div className="group bg-white dark:bg-slate-900 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
-
-            <div className="overflow-hidden">
-              <img
-                src={cane1}
-                className="w-full h-[420px] object-contain bg-slate-100 dark:bg-slate-800 p-4"
-              />
-            </div>
-
-            <div className="p-6 space-y-3">
-              <h3 className="text-2xl font-bold text-blue-600">
-                Smart Navigation Cane
-              </h3>
-
-              <p className="text-sm text-slate-600 dark:text-slate-300">
-                IoT assistive device using ESP8266 with GPS tracking,
-                obstacle detection, and emergency caregiver alerts via Blynk.
-              </p>
-
-              <div className="flex flex-wrap gap-2 pt-2">
-                {["ESP8266", "GPS", "Blynk", "IoT"].map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-3 py-1 rounded-full border bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:scale-[1.02] transition duration-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -275,6 +426,23 @@ function App() {
             >
               github.com/mansyraf
             </a>
+          </p>
+          <p>
+            Currently seeking internship opportunities in:
+          </p>
+          <p>
+            • Mobile Application Development
+            <br />
+            • Web Development
+            <br />
+            • Software Development
+            <br />
+            • Network Engineer
+            <br />
+            • Iot Development
+          </p>
+          <p>
+            Available from: September 2026 – February 2027
           </p>
         </div>
       </section>
