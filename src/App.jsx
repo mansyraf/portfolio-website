@@ -88,7 +88,7 @@ function App() {
           </p>
 
           <p className="opacity-70">
-            Passionate about Mobile Apps, Networking, Web and IoT systems.
+            Passionate about Mobile Apps, Data Analytics, Networking, Web and IoT systems.
             Actively seeking internship opportunities.
           </p>
 
@@ -137,7 +137,7 @@ function App() {
 
           <br /><br />
 
-          My technical interests include mobile application development, artificial
+          My technical interests include mobile application development, data analytics, artificial
           intelligence, cloud technologies, and network infrastructure. I have
           developed projects using Flutter, Firebase, OpenAI API, ESP8266, GPS, and
           geolocation services, including an AI-powered repair assistant application
@@ -178,6 +178,7 @@ function App() {
               "ESP8266 & IoT Dev",
               "Network Troubleshooting",
               "Switch & Router Configuration",
+              "Data Analytics"
             ].map((s) => (
               <span
                 key={s}
@@ -433,13 +434,13 @@ function App() {
           <p>
             • Mobile Application Development
             <br />
-            • Web Development
-            <br />
-            • Software Development
+            • Data Analytics
             <br />
             • Network Engineer
             <br />
-            • Iot Development
+            • Software Development
+            <br />
+            • IoT Development
           </p>
           <p>
             Available from: September 2026 – February 2027
